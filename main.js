@@ -1,9 +1,15 @@
 const { app, BrowserWindow } = require("electron");
+const path = require("path");
+
+const preloadPath = path.join(__dirname, "preload.js");
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      preload: preloadPath,
+    },
   });
 
   win.loadFile("index.html");
@@ -11,6 +17,16 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   createWindow();
+
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
 });
 
-console.log("Hello Electron");
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
