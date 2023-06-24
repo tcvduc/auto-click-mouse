@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 const preloadPath = path.join(__dirname, "preload.js");
@@ -16,6 +16,8 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  ipcMain.handle("ping", () => "pong");
+  ipcMain.handle("helloFromPreload", () => "Reply from main");
   createWindow();
 
   app.on("activate", () => {
