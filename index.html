@@ -6,10 +6,14 @@
     <title>Electron</title>
   </head>
   <body>
-    <h1>Hello Electron</h1>
-
-    <p id="info"></p>
+    <h3>Click-Through Window in Electron</h3>
+    <button id="disable">Disable Mouse Events on Current Window</button>
+    <br /><br />
+    <button id="forward">Forwarding Mouse Events</button>
+    <!-- Adding Individual Renderer Process Script File  -->
+    <script src="index.js"></script>
 
     <script src="./renderer.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
