@@ -26,7 +26,10 @@
       },
       "args": [".", "--remote-debugging-port=9222"],
       "outputCapture": "std",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "env": {
+        "GITHUB_TOKEN": "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"
+      }
     }
   ]
 }
