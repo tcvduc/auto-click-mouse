@@ -13,8 +13,12 @@
       "port": 9222,
       "request": "attach",
       "type": "chrome",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "env": {
+        "GITHUB_TOKEN": "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"
+      }
     },
+
     {
       "name": "Main",
       "type": "node",
