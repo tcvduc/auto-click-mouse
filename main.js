@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, ShareMenu } = require("electron");
 const path = require("path");
 
 const preloadPath = path.join(__dirname, "preload.js");
@@ -11,6 +11,9 @@ const createWindow = () => {
       preload: preloadPath,
     },
   });
+
+  // click through app to desktop
+  win.setIgnoreMouseEvents(true);
 
   win.loadFile("index.html");
 };
